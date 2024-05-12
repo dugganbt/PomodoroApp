@@ -1,5 +1,6 @@
 from tkinter import *
 import math
+import time
 
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
@@ -21,6 +22,9 @@ def reset_timer():
     # Stop the timer
     window.after_cancel(timer)
 
+    # Reset the start button
+    start_button.config(state="normal")
+
     # Reset the timer label
     canvas.itemconfig(timer_text, text=f"00:00")
 
@@ -40,8 +44,11 @@ def start_timer():
     global reps
     reps += 1
 
-    work_sec = WORK_MIN * 60
-    short_break_sec = SHORT_BREAK_MIN * 60
+    # Turn of start button once timer is started
+    start_button.config(state="disabled")
+
+    work_sec = 10
+    short_break_sec = 10
     long_break_sec = LONG_BREAK_MIN * 60
 
     # Alternate between work time and break time
