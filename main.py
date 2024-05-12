@@ -47,8 +47,8 @@ def start_timer():
     # Turn of start button once timer is started
     start_button.config(state="disabled")
 
-    work_sec = 10
-    short_break_sec = 10
+    work_sec = WORK_MIN*60
+    short_break_sec = SHORT_BREAK_MIN*60
     long_break_sec = LONG_BREAK_MIN * 60
 
     # Alternate between work time and break time
